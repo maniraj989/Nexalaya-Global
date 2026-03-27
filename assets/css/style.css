@@ -896,8 +896,8 @@ ul {
 ============================== */
 .universities-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
     padding-top: 20px;
 }
 
@@ -1372,8 +1372,8 @@ select.form-control option {
 
 .courses-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
 }
 
 .course-card {
@@ -1744,7 +1744,7 @@ select.form-control option {
    Responsive Design
 ============================== */
 @media (max-width: 992px) {
-    .main-nav ul {
+    .main-nav > ul {
         display: none;
         /* Hide default nav on smaller screens */
         flex-direction: column;
@@ -1758,7 +1758,7 @@ select.form-control option {
         gap: 15px;
     }
 
-    .main-nav.active ul {
+    .main-nav.active > ul {
         display: flex;
     }
 
@@ -1783,6 +1783,20 @@ select.form-control option {
         opacity: 1;
         visibility: visible;
         display: flex;
+        flex-direction: column;
+    }
+
+    .main-nav > ul > li > a {
+        justify-content: space-between;
+        padding: 12px 10px;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .nav-arrow {
+        padding: 10px;
+        font-size: 16px;
+        background: rgba(0,0,0,0.03);
+        border-radius: 4px;
     }
 
     .nav-search {
@@ -1914,10 +1928,15 @@ select.form-control option {
 
     .footer-grid {
         grid-template-columns: 1fr 1fr;
+        gap: 30px;
     }
 }
 
 @media (max-width: 768px) {
+    .padding-100 {
+        padding: 60px 0;
+    }
+
     .hero-title {
         font-size: 36px;
     }
