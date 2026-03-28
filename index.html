@@ -209,8 +209,8 @@
                         <h3 class="color-primary">University Admissions</h3>
                         <p class="color-text-light">We assist you in selecting and applying to top-ranked universities
                             perfectly aligned with your academic profile.</p>
-                        <a href="service-university-admissions.html" class="btn-text color-secondary mt-20">Learn More
-                            <i class="fa-solid fa-arrow-right"></i></a>
+                        <!--<a href="service-career-counseling.html" class="btn-text color-secondary mt-20">Learn More <i
+                                class="fa-solid fa-arrow-right"></i></a>-->
                     </div>
                 </div>
 
@@ -223,8 +223,8 @@
                         <h3 class="color-primary">Visa Assistance</h3>
                         <p class="color-text-light">Thorough documentation review and mock interviews to ensure a
                             hassle-free and successful visa approval.</p>
-                        <a href="service-visa-assistance.html" class="btn-text color-secondary mt-20">Learn More <i
-                                class="fa-solid fa-arrow-right"></i></a>
+                        <!--<a href="service-career-counseling.html" class="btn-text color-secondary mt-20">Learn More <i
+                                class="fa-solid fa-arrow-right"></i></a>-->
                     </div>
                 </div>
 
@@ -237,8 +237,8 @@
                         <h3 class="color-primary">Scholarship Guidance</h3>
                         <p class="color-text-light">Identify and apply for lucrative financial aid to lessen your
                             monetary burden and maximize opportunities.</p>
-                        <a href="service-scholarship-guidance.html" class="btn-text color-secondary mt-20">Learn More <i
-                                class="fa-solid fa-arrow-right"></i></a>
+                        <!--<a href="service-career-counseling.html" class="btn-text color-secondary mt-20">Learn More <i
+                                class="fa-solid fa-arrow-right"></i></a>-->
                     </div>
                 </div>
             </div>
@@ -348,31 +348,31 @@
                             stroke-linecap="round" />
                     </svg>
 
-                    <form class="enquiry-form mt-30">
+                    <form class="enquiry-form mt-30" id="contactForm">
                         <div class="form-row">
                             <div class="form-group">
                                 <label>First Name</label>
-                                <input type="text" class="form-control" required>
+                                <input type="text" class="form-control" id="firstName" name="firstName" required>
                             </div>
                             <div class="form-group">
                                 <label>Last Name</label>
-                                <input type="text" class="form-control" required>
+                                <input type="text" class="form-control" id="lastName" name="lastName" required>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group">
                                 <label>Email ID</label>
-                                <input type="email" class="form-control" required>
+                                <input type="email" class="form-control" id="email" name="email" required>
                             </div>
                             <div class="form-group">
                                 <label>Mobile Number</label>
-                                <input type="tel" class="form-control" required>
+                                <input type="tel" class="form-control" id="mobile" name="mobile" required>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group">
                                 <label>Your preferred study destination</label>
-                                <select class="form-control" required>
+                                <select class="form-control" id="destination" name="destination" required>
                                     <option value="" disabled selected>Select Destination</option>
                                     <option>UK</option>
                                     <option>India</option>
@@ -386,13 +386,13 @@
                             </div>
                             <div class="form-group">
                                 <label>Course</label>
-                                <input type="text" class="form-control" required>
+                                <input type="text" class="form-control" id="course" name="course" required>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group">
                                 <label>When do you plan to study?</label>
-                                <select class="form-control">
+                                <select class="form-control" id="month" name="month">
                                     <option value="" disabled selected>Select Month</option>
                                     <option>January</option>
                                     <option>May</option>
@@ -401,7 +401,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Your preferred year</label>
-                                <select class="form-control">
+                                <select class="form-control" id="year" name="year">
                                     <option value="" disabled selected>Select Year</option>
                                     <option>2026</option>
                                     <option>2027</option>
@@ -411,13 +411,19 @@
                         </div>
                         <div class="form-checkbox mt-20">
                             <label>
-                                <input type="checkbox" required>
+                                <input type="checkbox" id="consent" name="consent" required>
                                 <span class="checkmark"></span>
                                 <span class="checkbox-text">I consent to receiving Calls, WhatsApp, Email and SMS from
                                     Nexalaya Global to assist with this enquiry.</span>
                             </label>
                         </div>
-                        <button type="submit" class="btn btn-outline-white mt-30">Submit</button>
+
+                        <!-- Status message container -->
+                        <div id="formStatus"
+                            style="display: none; padding: 10px; margin-top: 20px; border-radius: 5px; font-weight: 500;">
+                        </div>
+
+                        <button type="submit" class="btn btn-outline-white mt-30" id="submitBtn">Submit</button>
                     </form>
                 </div>
             </div>
@@ -623,6 +629,18 @@
     <script
         src="https://cdn.jsdelivr.net/npm/tsparticles-preset-stars@2/tsparticles.preset.stars.bundle.min.js"></script>
     <script src="assets/js/script.js"></script>
+
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            // Initialize EmailJS with Public Key
+            emailjs.init("Ee61QlbnLIrfozO4c");
+        })();
+    </script>
+
+    <!-- Firebase Integration Logic -->
+    <script type="module" src="assets/js/firebase-config.js"></script>
 </body>
 
 </html>
